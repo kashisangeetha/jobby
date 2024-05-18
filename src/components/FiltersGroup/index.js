@@ -44,7 +44,7 @@ const FiltersGroup = props => {
     const {employmentTypesList} = props
 
     return (
-      <div className="emplo">
+      <div className="employ">
         <h1>Type of Employment</h1>
         <ul className="list">
           {employmentTypesList.map(eachEmployeeType => {

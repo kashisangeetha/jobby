@@ -125,7 +125,7 @@ class Jobs extends Component {
         />
         <h1>No Jobs Found</h1>
         <p>We Could not find any jobs.</p>
-       </div>
+    </div>
     )
   }
 
@@ -158,7 +158,7 @@ class Jobs extends Component {
   renderAllJobs = () => {
     const {apiStatus} = this.state
 
-    switch(apiStatus) {
+    switch (apiStatus) {
       case apiStatusConstants.success:
         return this.renderJobsList()
       case apiStatusConstants.failure:
@@ -175,62 +175,62 @@ class Jobs extends Component {
   }
 
   onEnterSearchInput = event => {
-      if (event.key === 'Enter') {
-        this.getJobs()
-      }
+    if (event.key === 'Enter') {
+      this.getJobs()
+    }
   }
 
   changeSalary = salary => {
-      this.setState({minimumSalary: salary}, this.getJobs)
+    this.setState({minimumSalary: salary}, this.getJobs)
   }
 
   changeEmployeeList = type => {
-      this.setState({
-        prev => ({employeeType: [...prev.employeeType, type]}),
-        this.getJobs,
-      )
-  }
+    this.setState(
+      prev => ({employeeType: [...prev.employeeType, type]}),
+      this.getJobs,
+    );
+  };
 
   render() {
-    const {searchInput} =this.state
+    const {searchInput} = this.state
     return (
-        <div>
-            <Header />
-            <div className="container">
-                <div className="con">
-                <FiltersGroup
-                employmentTypesList={employmentTypesList}
-                salaryRangesList={salaryRangesList}
-                changeSearchInput={this.changeSearchInput}
-                searchInput={searchInput}
-                getJobs={this.getJobs}
-                changeSalary={this.changeSalary}
-                changeEmployeeList={this.changeEmployeeList}
-                />
+      <div>
+        <Header />
+        <div className="container">
+          <div className="con">
+            <FiltersGroup
+              employmentTypesList={employmentTypesList}
+              salaryRangesList={salaryRangesList}
+              changeSearchInput={this.changeSearchInput}
+              searchInput={searchInput}
+              getJobs={this.getJobs}
+              changeSalary={this.changeSalary}
+              changeEmployeeList={this.changeEmployeeList}
+            />
 
-                <div className="search">
-                    <div className="con">
-                        <input
-                          type="search"
-                          className="input"
-                          placeholder="Search"
-                          onChange={this.changeSearchInput}
-                          onKeyDown={this.onEnterSearchInput}
-                          />
-                          <button
-                            type="button"
-                            data-testid="searchButton"
-                            className="btn"
-                            onClick={this.getJobs}
-                          >
-                            <BsSearch className="icon"></BsSearch>
-                          </button>
-                    </div>
-                    {this.renderAllJobs()}
-                </div>
+            <div className="search">
+              <div className="con">
+                <input
+                  type="search"
+                  className="input"
+                  placeholder="Search"
+                  onChange={this.changeSearchInput}
+                  onKeyDown={this.onEnterSearchInput}
+                />
+                <button
+                  type="button"
+                  data-testid="searchButton"
+                  className="btn"
+                  onClick={this.getJobs}
+                >
+                  <BsSearch className="icon"></BsSearch>
+                </button>
+              </div>
+              {this.renderAllJobs()}
             </div>
+          </div>
         </div>
-        </div>
+      </div>
     )
   }
 }
