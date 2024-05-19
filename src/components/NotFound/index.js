@@ -11,7 +11,7 @@ const NotFound = () => (
         className="img"
       />
       <h1>Page Not Found</h1>
-      <p>We are sorry</p>
+      <p>We are sorry, the page you requested could not be found</p>
     </div>
   </div>
 )

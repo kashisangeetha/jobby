@@ -106,7 +106,7 @@ class JobItemDetails extends Component {
           className="fail"
         />
         <h1>Oops! Something Went Wrong</h1>
-        <p>We Cannot seem to find</p>
+        <p>We cannot seem to find the page you are looking for</p>
         <button
           id="button"
           type="button"
@@ -211,7 +211,7 @@ class JobItemDetails extends Component {
   renderJobDetails = () => {
     const {apiStatus} = this.state
 
-    switch(apiStatus) {
+    switch (apiStatus) {
       case apiStatusConstants.success:
         return this.renderJobDetailsView()
       case apiStatusConstants.failure:
